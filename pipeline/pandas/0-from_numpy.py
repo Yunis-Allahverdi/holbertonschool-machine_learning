@@ -5,7 +5,7 @@ import pandas as pd
 
 '''
 This module creates np array and assign it to df
-Before that we need to import pandas library
+Before that we need to upload pandas library
 '''
 
 
