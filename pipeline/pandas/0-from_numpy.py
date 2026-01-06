@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
-import pandas as pd
-
-
 '''
 This module creates np array and assign it to df
 Before that we need to upload pandas library
 '''
+import pandas as pd
 
 
 def from_numpy(array):
