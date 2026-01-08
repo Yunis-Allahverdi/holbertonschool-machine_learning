@@ -2,7 +2,6 @@
 '''
 This module computes desc() except Timestamp column
 '''
-import pandas as pd
 
 
 def analyze(df):
