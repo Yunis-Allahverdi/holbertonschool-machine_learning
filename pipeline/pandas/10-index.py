@@ -9,5 +9,5 @@ def index(df):
     '''
     This fumction does same thing like above
     '''
-    new_df = df.set_index('Timestamp')
-    return new_df
+    df = df.set_index('Timestamp')
+    return df
