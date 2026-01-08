@@ -12,6 +12,7 @@ def hierarchy(df1, df2):
     '''
     df1 = index(df1)
     df2 = index(df2)
+    df1 = df1.loc[1417411980:1417417980]
+    df2 = df2.loc[1417411980:1417417980]
     df = pd.concat([df2, df1], axis=0, keys=["bitstamp", "coinbase"])
-    df = df.loc[1417411980:1417417980]
     return df
