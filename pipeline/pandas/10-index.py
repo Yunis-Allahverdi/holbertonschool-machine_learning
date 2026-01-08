@@ -9,5 +9,5 @@ def fill(df):
     '''
     This fumction does same thing like above
     '''
-    df.set_index('Timestamp')
+    df.set_index('Timestamp', inplace=True)
     return df
