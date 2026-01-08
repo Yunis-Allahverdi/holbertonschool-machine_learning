@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-
 '''
-This module sets index
+My module document
 '''
 import pandas as pd
 index = __import__('10-index').index
@@ -9,7 +8,7 @@ index = __import__('10-index').index
 
 def concat(df1, df2):
     '''
-    This fumction does same thing like above
+    My function document
     '''
     df1 = index(df1)
     df2 = index(df2)
