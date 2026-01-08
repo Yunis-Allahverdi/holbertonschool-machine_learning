@@ -10,6 +10,7 @@ def rename(df):
     '''
     This function loads data with delimiter
     '''
-    df['Datetime'] = pd.to_datatime(df['Timestamp'],unit='s')
+    df = df.rename(columns={"Timestamp": "Datetime"})
+    df["Datetime"] = pd.to_datetime(df["Datetime"])
     new_df = df[['Datetime', 'Close']]
     return new_df
