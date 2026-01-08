@@ -3,7 +3,7 @@
 This module joins two dataset
 '''
 import pandas as pd
-index = __import__('11-concat').index
+index = __import__('10-index').index
 
 
 def hierarchy(df1, df2):
