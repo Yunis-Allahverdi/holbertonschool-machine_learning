@@ -7,7 +7,7 @@ import pandas as pd
 index = __import__('10-index').index
 
 
-def index(df):
+def concat(df1, df2):
     '''
     This fumction does same thing like above
     '''
