@@ -2,8 +2,9 @@
 
 '''
 This module selects last 10 rows and
-converts them into numpy array
+converts them into array
 '''
+import pandas as pd
 
 
 def array(df):
