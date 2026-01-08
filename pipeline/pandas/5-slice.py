@@ -3,7 +3,6 @@
 '''
 This module selects every 60th row of these columns
 '''
-import pandas as pd
 
 
 def slice(df):
@@ -11,5 +10,5 @@ def slice(df):
     This fumction does same thing like above
     '''
     df = df[['High', 'Low', 'Close', 'Volume_(BTC)']]
-    new_df = [df[i] for i in range(0, len(df), 60)]
+    new_df = [df[i] if i % 60 == 0]
     return new_df
