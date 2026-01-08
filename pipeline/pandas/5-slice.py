@@ -3,6 +3,7 @@
 '''
 This module selects every 60th row of these columns
 '''
+import pandas as pd
 
 
 def slice(df):
