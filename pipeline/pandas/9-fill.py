@@ -9,7 +9,7 @@ def fill(df):
     '''
     This fumction does same thing like above
     '''
-    df.drop('Weighted_Price', axis=1)
+    df.drop('Weighted_Price', axis=1, inplace=True)
     df['Close'].fillna(method='pad')
     df['High'] = df['High'].fillna(df['Close'])
     df['Low'] = df['Low'].fillna(df['Close'])
