@@ -11,4 +11,5 @@ def rename(df):
     This function loads data with delimiter
     '''
     df['Datetime'] = pd.to_datatime(df['Timestamp'])
-    return df
+    new_df = df[['Datetime', 'Close']]
+    return new_df
