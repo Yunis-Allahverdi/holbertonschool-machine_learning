@@ -4,7 +4,6 @@
 This module selects last 10 rows and
 converts them into numpy array
 '''
-# import pandas as pd
 
 
 def array(df):
