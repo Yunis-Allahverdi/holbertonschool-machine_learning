@@ -5,9 +5,9 @@ This module sets index
 '''
 
 
-def fill(df):
+def index(df):
     '''
     This fumction does same thing like above
     '''
-    df = df.set_index('Timestamp')
-    return df
+    new_df = df.set_index('Timestamp')
+    return new_df
