@@ -13,6 +13,7 @@ def bars():
     np.random.seed(5)
     fruit = np.random.randint(0, 20, (4,3))
     #plt.figure(figsize=(6.4, 4.8)) 
+    names = ['Farrah', 'Fred', 'Felicia']
     plt.bar(names, fruit[0, :], label='apple', width=0.5, color='red')
     plt.bar(names, fruit[1, :], label='bananas', bottom=column1, width=0.5, color='yellow')
     plt.bar(names, fruit[2, :], label='oranges', bottom=column1+column2, width=0.5, color='#ff8000')
