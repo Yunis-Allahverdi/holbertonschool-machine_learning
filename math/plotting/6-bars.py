@@ -12,7 +12,7 @@ def bars():
     '''
     np.random.seed(5)
     fruit = np.random.randint(0, 20, (4,3))
-    #plt.figure(figsize=(6.4, 4.8)) 
+    plt.figure(figsize=(6.4, 4.8)) 
     names = ['Farrah', 'Fred', 'Felicia']
     column1 = fruit[0, :]
     column2 = fruit[1, :]
