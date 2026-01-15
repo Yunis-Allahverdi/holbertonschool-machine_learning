@@ -14,7 +14,7 @@ def poly_integral(poly, C=0):
     if not all(isinstance(c, (int, float)) for c in poly):
         return None
     if len(poly) == 0:
-        return None
+        return [C] if C != 0 else None
     if not isinstance(C, (int, float)):
         return None
 
@@ -26,6 +26,4 @@ def poly_integral(poly, C=0):
             coeff = int(coeff)
         poly_int.append(coeff)
 
-    if len(poly_int) == 0:
-        return None
     return poly_int
