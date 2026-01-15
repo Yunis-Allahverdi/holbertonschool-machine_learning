@@ -17,6 +17,8 @@ def poly_integral(poly, C=0):
         return None
     if not isinstance(C, (int, float)):
         return None
+    if poly == [0]:
+        return poly
 
     poly_int = [C]
 
