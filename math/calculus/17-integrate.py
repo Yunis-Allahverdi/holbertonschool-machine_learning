@@ -17,13 +17,11 @@ def poly_integral(poly, C=0):
         return None
     if not isinstance(C, (int, float)):
         return None
-    if poly == [0]:
-        return [0]
 
     poly_int = [C]
 
-    for i in range(len(poly)):
-        coeff = poly[i] / (i + 1)
+    for i, coef in enumerate(poly):
+        coeff = coef / (i + 1)
         if coeff.is_integer():
             coeff = int(coeff)
         poly_int.append(coeff)
