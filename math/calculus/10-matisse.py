@@ -6,8 +6,9 @@ This module calc the derivative of poly
 
 
 def poly_derivative(poly):
-    if (not isinstance(poly, list)
-    or not all(isinstance(c, (int, float)) for c in poly)):
+    if not isinstance(poly, list):
+        return None
+    if not all(isinstance(c, (int, float)) for c in poly):
         return None
 
     poly_der = []
