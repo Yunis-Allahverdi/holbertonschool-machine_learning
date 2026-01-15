@@ -10,7 +10,9 @@ def poly_derivative(poly):
         return None
 
     poly_der = []
-    for i in range(1, len(poly)):    
+    for i in range(1, len(poly)):
         poly_der.append(i * poly[i])
 
+    if len(poly_der) == 0:
+        return [0]
     return poly_der
