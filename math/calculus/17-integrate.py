@@ -21,7 +21,10 @@ def poly_integral(poly, C=0):
     poly_int = [C]
 
     for i in range(len(poly)):
-        poly_int.append(poly[i] / (i + 1))
+        coeff = poly[i] / (i + 1)
+        if coeff.is_integer():
+            coeff = int(coeff)
+        poly_int.append(coeff)
 
     if len(poly_int) == 0:
         return None
