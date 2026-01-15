@@ -9,6 +9,6 @@ def summation_i_squared(n):
     '''
     This function does same thing as above
     '''
-    if type(n) is int:
+    if int(n) > -1:
         return (n*(n+1)*(2*n+1))/6
     return None
