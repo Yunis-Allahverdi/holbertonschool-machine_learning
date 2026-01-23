@@ -13,4 +13,5 @@ def add_arrays(arr1, arr2):
         for i in range(len(arr1)):
             new_arr[i] = arr1[i] + arr2[i]
 
-    return new_arr
+        return new_arr
+    return None
