@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import numpy as np
 '''
 Concat of matrix using np
 '''
