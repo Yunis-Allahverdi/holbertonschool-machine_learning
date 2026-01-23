@@ -8,7 +8,7 @@ def cat_arrays(arr1, arr2):
     '''
     Does same thing as above
     '''
-    new_list = arr1
+    new_list = arr1.copy()
     for i in arr2:
         new_list.append(i)
 
