@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
+'''
+Calc the shape of matrix
+'''
+
 
 def matrix_shape(matrix):
+    '''
+    Does same thing as above
+    '''
     shape = []
 
     while isinstance(matrix, list):
