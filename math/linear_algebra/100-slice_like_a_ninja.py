@@ -4,15 +4,23 @@ Slice of matrix using np
 '''
 
 
-import numpy as np
-
-
 def np_slice(matrix, axes={}):
-    '''
-    Does same thing as above
-    '''
-    row_val = axes.get(0, slice(None))
-    col_val = axes.get(1, slice(None))
-    row_idx = slice(*row_val) if isinstance(row_val, tuple) else row_val
-    col_idx = slice(*col_val) if isinstance(col_val, tuple) else col_val
-    return matrix[row_idx, col_idx]
+    """
+    Slices a numpy.ndarray along specific axes based on a dictionary.
+
+    Args:
+        matrix: A numpy.ndarray to be sliced.
+        axes: A dictionary where key is the axis and value is the slice tuple.
+
+    Returns:
+        A new numpy.ndarray containing the sliced data.
+    """
+    # Create a list of default slices (equivalent to :) for every dimension
+    # matrix.ndim gives us the total number of axes
+    slices = [slice(None)] * matrix.ndim
+
+    # Update the slice list with specific instructions from the axes dict
+    for axis, slice_tuple in axes.items():
+        slices[axis] = slice(*slice_tuple)
+
+    return matrix[tuple(slices)]
