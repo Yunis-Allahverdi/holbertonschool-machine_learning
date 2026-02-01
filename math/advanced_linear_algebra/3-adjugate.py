@@ -5,6 +5,9 @@ Documented
 
 
 def determinant(matrix):
+    '''
+    Documented
+    '''
     if (not isinstance(matrix, list) or
             any(not isinstance(row, list) for row in matrix)):
         raise TypeError("matrix must be a list of lists")
@@ -32,6 +35,9 @@ def determinant(matrix):
 
 
 def minor(matrix):
+    '''
+    Documented
+    '''
     if (not isinstance(matrix, list) or
             any(not isinstance(row, list) for row in matrix)):
         raise TypeError("matrix must be a list of lists")
@@ -57,6 +63,9 @@ def minor(matrix):
 
 
 def cofactor(matrix):
+    '''
+    Documented
+    '''
     if (not isinstance(matrix, list) or
             any(not isinstance(row, list) for row in matrix)):
         raise TypeError("matrix must be a list of lists")
@@ -79,6 +88,9 @@ def cofactor(matrix):
 
 
 def adjugate(matrix):
+    '''
+    Documented
+    '''
     if (not isinstance(matrix, list) or
             any(not isinstance(row, list) for row in matrix)):
         raise TypeError("matrix must be a list of lists")
