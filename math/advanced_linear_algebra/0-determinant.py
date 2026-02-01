@@ -28,6 +28,6 @@ def determinant(matrix):
                     (matrix[1][0] * matrix[2][1]) -
                     (matrix[2][0] * matrix[1][1]))
         else:
-            raise ValueError('matrix must be a square matrix')
+            raise ValueError("matrix must be a square matrix")
     except:
-        raise TypeError('matrix must be a list of lists')
+        raise TypeError("matrix must be a list of lists")
