@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+'''
+Documented
+'''
+
 
 def determinant(matrix):
     if (not isinstance(matrix, list) or
