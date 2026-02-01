@@ -15,8 +15,8 @@ def determinant(matrix):
             if rows == 1:
                 return matrix[0][0]
             if rows == 2:
-                return (matrix[0][0] * matrix[1][1]) -
-            (matrix[1][0] * matrix[0][1])
+                return (matrix[0][0] * matrix[1][1]) - \
+                    (matrix[1][0] * matrix[0][1])
             if rows == 3:
                 return matrix[0][0] * (
                     (matrix[1][1] * matrix[2][2]) -
