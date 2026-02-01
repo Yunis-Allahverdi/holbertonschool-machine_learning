@@ -6,8 +6,9 @@ Finding determinant of matrix
 
 
 def determinant(matrix):
-    if not isinstance(matrix, list) or
-    any(not isinstance(row, list) for row in matrix):
+    if (
+        not isinstance(matrix, list) 
+        or any(not isinstance(row, list) for row in matrix)):
         raise TypeError("matrix must be a list of lists")
 
     if matrix == [[]]:
