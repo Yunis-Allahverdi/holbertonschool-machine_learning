@@ -30,4 +30,4 @@ def determinant(matrix):
         else:
             raise ValueError('matrix must be a square matrix')
     except:
-        raise IndexError('matrix must be a list of lists')
+        raise TypeError('matrix must be a list of lists')
