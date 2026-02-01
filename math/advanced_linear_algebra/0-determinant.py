@@ -29,5 +29,5 @@ def determinant(matrix):
                     (matrix[2][0] * matrix[1][1]))
         else:
             raise ValueError('matrix must be a square matrix')
-    except IndexError:
-        return 'matrix must be a list of lists'
+    except:
+        raise IndexError('matrix must be a list of lists')
