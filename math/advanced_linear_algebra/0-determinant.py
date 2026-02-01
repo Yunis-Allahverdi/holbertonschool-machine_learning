@@ -6,18 +6,20 @@ Finding determinant of matrix
 
 
 def determinant(matrix):
-    if (
-        not isinstance(matrix, list) 
-        or any(not isinstance(row, list) for row in matrix)):
+    if not isinstance(matrix, list) or any(not isinstance(row, list) for row in matrix):
         raise TypeError("matrix must be a list of lists")
+
 
     if matrix == [[]]:
         return 1
+
     try:
         rows = len(matrix[0])
         cols = len(matrix)
+
         if rows == 0:
             return 1
+
         if rows == cols:
             if rows == 1:
                 return matrix[0][0]
@@ -37,5 +39,7 @@ def determinant(matrix):
                 )
         else:
             raise ValueError("matrix must be a square matrix")
+
     except (TypeError, IndexError):
         raise TypeError("matrix must be a list of lists")
+
