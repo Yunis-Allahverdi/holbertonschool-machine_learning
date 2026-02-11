@@ -35,3 +35,15 @@ class Normal:
             else:
                 self.stddev = float(stddev)
                 self.mean = float(mean)
+
+    def z_score(self, x):
+        '''
+        Doc
+        '''
+        return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        '''
+        Doc
+        '''
+        return z * self.stddev + self.mean
