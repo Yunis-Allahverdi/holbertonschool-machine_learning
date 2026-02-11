@@ -10,6 +10,7 @@ class Normal:
     '''
     Doc
     '''
+    pi = 3.141592653589793
 
     def __init__(self, data=None, mean=0., stddev=1.):
         if data is not None:
@@ -58,3 +59,14 @@ class Normal:
         coefficient = 1 / (self.stddev * (2 * pi) ** 0.5)
 
         return coefficient * (e ** exponent)
+
+    def cdf(self, x):
+        '''
+        Doc
+        '''
+        v = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        erf = (2 / (pi ** 0.5)) * (
+            v - (v**3 / 3) + (v**5 / 10) - (v**7 / 42) + (v**9 / 216)
+        )
+
+        return 0.5 * (1 + erf)
