@@ -30,6 +30,9 @@ class Poisson:
                 self.lambtha = float(lambtha)
 
     def pmf(self, k):
+        '''
+        Documented
+        '''
         if not isinstance(k, int):
             k = int(k)
         if k < 0:
