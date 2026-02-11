@@ -65,7 +65,7 @@ class Normal:
         Doc
         '''
         v = (x - self.mean) / (self.stddev * (2 ** 0.5))
-        erf = (2 / (pi ** 0.5)) * (
+        erf = (2 / (self.pi ** 0.5)) * (
             v - (v**3 / 3) + (v**5 / 10) - (v**7 / 42) + (v**9 / 216)
         )
 
