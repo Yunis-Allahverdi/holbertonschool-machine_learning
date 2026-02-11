@@ -5,6 +5,8 @@
 Doc
 '''
 
+import numpy as np
+
 
 def likelihood(x, n, P):
     if not isinstance(n, int) or n <= 0:
