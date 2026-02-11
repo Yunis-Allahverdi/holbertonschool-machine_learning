@@ -13,7 +13,6 @@ def marginal(x, n, P, Pr):
     '''
     Doc
     '''
-
     if not isinstance(n, int) or n <= 0:
         raise ValueError("n must be a positive integer")
 
@@ -49,4 +48,4 @@ def marginal(x, n, P, Pr):
         c *= (n - i + 1) / i
 
     L = c * np.power(P, x) * np.power(1 - P, n - x)
-    return float(np.sum(L * Pr))
+    return np.sum(L * Pr)
