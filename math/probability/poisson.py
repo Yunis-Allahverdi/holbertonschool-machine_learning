@@ -45,6 +45,9 @@ class Poisson:
         return ((self.lambtha ** k) * (2.7182818285 ** -self.lambtha)) / fact
 
     def cdf(self, k):
+        '''
+        Documented
+        '''
         if not isinstance(k, int):
             k = int(k)
 
