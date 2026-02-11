@@ -28,3 +28,15 @@ class Poisson:
                 raise ValueError("lambtha must be a positive value")
             else:
                 self.lambtha = float(lambtha)
+
+    def pmf(self, k):
+        if not isinstance(k, int):
+            k = int(k)
+        if k < 0:
+            return 0
+
+        fact = 1
+        for i in range(1, k + 1):
+            fact *= i
+
+        return ((self.lambtha ** k) * (2.7182818285 ** -self.lambtha)) / fact
