@@ -43,3 +43,22 @@ class Poisson:
             fact *= i
 
         return ((self.lambtha ** k) * (2.7182818285 ** -self.lambtha)) / fact
+
+    def cdf(self, k):
+        if not isinstance(k, int):
+            k = int(k)
+
+        if k < 0:
+            return 0
+
+        fact = 1
+        e_inv = 2.7182818285 ** (-self.lambtha)
+        total_probability = 0
+        for i in range(0, k + 1):
+            if i == 0:
+                total_probability += e_inv
+                continue
+            fact *= i
+            total_probability += ((self.lambtha ** i) * e_inv) / fact
+
+        return total_probability
