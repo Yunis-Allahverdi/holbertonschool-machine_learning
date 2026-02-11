@@ -10,6 +10,9 @@ import numpy as np
 
 
 def intersection(x, n, P, Pr):
+    '''
+    Doc
+    '''
     if not isinstance(n, int) or n <= 0:
         raise ValueError("n must be a positive integer")
 
