@@ -10,9 +10,6 @@ import numpy as np
 
 
 def intersection(x, n, P, Pr):
-    '''
-    Doc
-    '''
     if not isinstance(n, int) or n <= 0:
         raise ValueError("n must be a positive integer")
 
@@ -28,7 +25,7 @@ def intersection(x, n, P, Pr):
     if not isinstance(P, np.ndarray) or P.ndim != 1:
         raise TypeError("P must be a 1D numpy.ndarray")
 
-    if (not isinstance(Pr, np.ndarray) or Pr.shape != P.shape):
+    if not isinstance(Pr, np.ndarray) or Pr.shape != P.shape:
         raise TypeError("Pr must be a numpy.ndarray with the same shape as P")
 
     if np.any((P < 0) | (P > 1)):
@@ -43,9 +40,9 @@ def intersection(x, n, P, Pr):
     P = P.astype(float)
     Pr = Pr.astype(float)
 
-    c = 1
+    c = 1.0
     for i in range(1, x + 1):
-        c = c * (n - i + 1) // i
+        c *= (n - i + 1) / i
 
     L = c * np.power(P, x) * np.power(1 - P, n - x)
     return L * Pr
