@@ -6,6 +6,9 @@ Documented
 
 
 class Exponential:
+    '''
+    Doc
+    '''
     def __init__(self, data=None, lambtha=1.):
         if data is not None:
             if isinstance(data, list):
