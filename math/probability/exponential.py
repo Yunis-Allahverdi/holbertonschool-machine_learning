@@ -9,7 +9,11 @@ class Exponential:
     '''
     Doc
     '''
+
+    e = 2.7182818285
+
     def __init__(self, data=None, lambtha=1.):
+
         if data is not None:
             if isinstance(data, list):
                 if len(data) < 2:
@@ -26,3 +30,21 @@ class Exponential:
                 raise ValueError("lambtha must be a positive value")
             else:
                 self.lambtha = float(lambtha)
+
+    def pdf(self, x):
+        '''
+        Doc
+        '''
+        if x < 0:
+            return 0
+
+        return self.lambtha * Exponential.e ** (-self.lambtha * x)
+
+    def cdf(self, x):
+        '''
+        Doc
+        '''
+        if x < 0:
+            return 0
+
+        return (1 - (Exponential.e ** (-self.lambtha * x)))
