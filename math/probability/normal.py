@@ -51,5 +51,7 @@ class Normal:
     def pdf(self, x):
         pi = 3.141592653589793
         e = 2.7182818285
-        return (1 / (self.stddev * (2 * pi) ** 0.5)) * e **
-    (-0.5 * ((x - self.mean) / self.stddev) ** 2)
+        exponent = -0.5 * ((x - self.mean) / self.stddev) ** 2
+        coefficient = 1 / (self.stddev * (2 * pi) ** 0.5)
+
+        return coefficient * (e ** exponent)
