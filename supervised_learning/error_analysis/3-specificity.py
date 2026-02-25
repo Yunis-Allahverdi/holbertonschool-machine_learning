@@ -9,6 +9,12 @@ def specificity(confusion):
     '''
     My function document
     '''
-    fp = confusion[0, 1:].sum()
-    tn = confusion[1:, 1:].sum()
-    return tn / (fp + tn)
+    total = np.sum(confusion)
+    tp = np.diag(confusion)
+    positives = np.sum(confusion, axis=1)
+    predicted_positives = np.sum(confusion, axis=0)
+    fp = predicted_positives - tp
+    fn = positives - tp
+    tn = total - (tp + fp + fn)
+
+    return tn / (tn + fp)
