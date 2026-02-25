@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Documented
+My module document
 """
 import numpy as np
 
@@ -22,29 +22,32 @@ class Node:
 
     def max_depth_below(self):
         """
-        Documented
+        max_depth_below function
         """
         left = self.left_child.max_depth_below()
         right = self.right_child.max_depth_below()
         return max(left, right)
 
-
-def count_nodes_below(self, only_leaves=False):
+    def count_nodes_below(self, only_leaves=False):
         """
-        Doc
+        count_nodes_below function
         """
         count = 0
 
+        # Count current node if we are counting all nodes
         if not only_leaves:
             count = 1
 
+        # Recurse left
         if self.left_child is not None:
             count += self.left_child.count_nodes_below(only_leaves)
 
+        # Recurse right
         if self.right_child is not None:
             count += self.right_child.count_nodes_below(only_leaves)
 
         return count
+
 
 class Leaf(Node):
     """
@@ -58,9 +61,13 @@ class Leaf(Node):
 
     def max_depth_below(self):
         """
-        max_depth_below
+        max_depth_below function
         """
         return self.depth
+
+    def count_nodes_below(self, only_leaves=False):
+        """qwdwdq wdq qwd w dqw w"""
+        return 1
 
 
 class Decision_Tree():
@@ -86,3 +93,9 @@ class Decision_Tree():
         depth function
         """
         return self.root.max_depth_below()
+
+    def count_nodes(self, only_leaves=False):
+        """
+        count_nodes
+        """
+        return self.root.count_nodes_below(only_leaves=only_leaves)
