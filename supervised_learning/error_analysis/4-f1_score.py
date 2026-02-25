@@ -12,4 +12,7 @@ def f1_score(confusion):
     '''
     My function document
     '''
-    return 2 * (precision * sensitivity) / (precision + sensitivity)
+    p = precision_func(confusion)
+    s = sensitivity_func(confusion)
+ 
+    return 2 * (p * s) / (p + s)
