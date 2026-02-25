@@ -13,6 +13,6 @@ def create_confusion_matrix(labels, logits):
     classes = labels.shape[1]
     y_true = np.argmax(labels, axis=1)
     y_pred = np.argmax(logits, axis=1)
-    confusion = np.zeros((classes, classes), dtype=int)
+    confusion = np.zeros((classes, classes), dtype=float)
     np.add.at(confusion, (y_true, y_pred), 1)
     return confusion
