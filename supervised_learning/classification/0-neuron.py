@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-
-import numpy as np
-
 '''
 Doc
 '''
+import numpy as np
 
 
 class Neuron:
