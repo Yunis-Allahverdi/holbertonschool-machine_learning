@@ -55,7 +55,7 @@ class Neuron:
         m = X.shape[1]
         dZ = A - Y
         dW = (1/m) * np.dot(dZ, X.T)
-        db =(1/m) * np.sum(dZ)
+        db = (1/m) * np.sum(dZ)
         self.__W -= alpha * dW
         self.__b -= alpha * db
 
