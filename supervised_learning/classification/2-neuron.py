@@ -23,7 +23,10 @@ class Neuron:
         self.__A = 0
 
     def forward_prop(self, x):
-        '''Doc'''
+        '''
+        Doc
+        '''
+
         Z = np.dot(self.__W, x) + self.__b
         self.__A = 1 / (1 + np.exp(-Z))
         return self.__A
