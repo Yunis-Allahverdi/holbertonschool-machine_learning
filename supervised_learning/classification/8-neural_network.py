@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import numpy as np
 
+'''
+Doc
+'''
+
+
 class NeuralNetwork:
     '''
     Doc
