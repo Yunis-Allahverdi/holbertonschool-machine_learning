@@ -54,12 +54,18 @@ class NeuralNetwork:
         return cost
 
     def evaluate(self, X, Y):
+        '''
+        Doc
+        '''
         A1, A2 = self.forward_prop(X)
         predictions = np.where(A2 >= 0.5, 1, 0)
         cost = self.cost(Y, A2)
         return predictions, cost
 
     def gradient_descent(self, X, Y, A1, A2, alpha=0.05):
+        '''
+        Doc
+        '''
         m = X.shape[1]
         dZ2 = A2 - Y
         dW2 = np.dot(dZ2, A1.T) / m
