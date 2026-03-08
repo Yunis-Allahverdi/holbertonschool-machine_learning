@@ -12,6 +12,10 @@ class NeuralNetwork:
     '''
 
     def __init__(self, nx, nodes):
+        '''
+        Doc
+        '''
+
         if not isinstance(nx, int):
             raise TypeError("nx must be an integer")
         if nx < 1:
