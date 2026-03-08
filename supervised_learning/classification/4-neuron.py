@@ -40,6 +40,9 @@ class Neuron:
         return cost
 
     def evaluate(self, X, Y):
+        '''
+        Doc
+        '''
         A = self.forward_prop(X)
         predictions = np.where(A >= 0.5, 1, 0)
         cost = self.cost(Y, A)
