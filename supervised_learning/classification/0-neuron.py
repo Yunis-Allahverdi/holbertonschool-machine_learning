@@ -8,9 +8,9 @@ Doc
 
 
 class Neuron:
-'''
-Doc
-'''
+  '''
+  Doc
+  '''
 
   def __init__(self, nx):
     if not isinstance(nx, int):
