@@ -32,6 +32,13 @@ def train_model(network, data, labels, batch_size, epochs,
                 K.callbacks.LearningRateScheduler(lr_scheduler, verbose=1)
                 )
 
+    if save_best and filepath is not None:
+        callbacks.append(K.callbacks.ModelCheckpoint(
+            filepath=filepath,
+            save_best_only=True,
+            monitor='val_loss'
+        ))
+
     history = network.fit(
         x=data,
         y=labels,
@@ -42,13 +49,3 @@ def train_model(network, data, labels, batch_size, epochs,
         validation_data=validation_data,
         callbacks=callbacks
     )
-
-    if save_best and filepath is not None:
-        checkpoint = K.callbacks.ModelCheckpoint(
-            filepath=filepath,
-            save_best_only=True,
-            monitor='val_loss'
-        )
-        callbacks.append(checkpoint)
-
-    return history
