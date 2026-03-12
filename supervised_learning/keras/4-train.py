@@ -7,7 +7,7 @@ import tensorflow.keras as K
 
 
 def train_model(network, data, labels, batch_size, epochs, verbose=False, shuffle=False):
-    network.fit(
+    history = network.fit(
         x=data,
         y=labels,
         batch_size=batch_size,
@@ -15,4 +15,4 @@ def train_model(network, data, labels, batch_size, epochs, verbose=False, shuffl
         verbose=verbose,
         shuffle=shuffle
     )
-    return network
+    return history
