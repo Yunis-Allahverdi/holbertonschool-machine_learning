@@ -26,10 +26,9 @@ def train_model(network, data, labels, batch_size, epochs,
     if learning_rate_decay and validation_data is not None:
         def lr_scheduler(epoch, lr):
             return alpha / (1 + decay_rate * epoch)
-            return new_lr
 
         callbacks.append(
-                K.callbacks.LearningRateScheduler(lr_scheduler, verbose=0)
+                K.callbacks.LearningRateScheduler(lr_scheduler, verbose=1)
                 )
 
     history = network.fit(
