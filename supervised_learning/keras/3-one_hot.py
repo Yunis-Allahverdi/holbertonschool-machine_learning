@@ -10,7 +10,4 @@ def one_hot(labels, classes=None):
     '''
     Doc
     '''
-    m = labels.shape[0]
-    one_hot_matrix = np.zeros((m, classes))
-    one_hot_matrix[np.arange(m), labels] = 1
-    return one_hot_matrix
+    return K.ops.one_hot(labels, num_classes=classes)
