@@ -9,6 +9,7 @@ import tensorflow.keras as K
 def train_model(network, data, labels, batch_size, epochs,
                 validation_data=None, early_stopping=False, patience=0,
                 learning_rate_decay=False, alpha=0.1, decay_rate=1,
+                save_best=False, filepath=None,
                 verbose=True, shuffle=False):
     '''
     Doc
@@ -41,5 +42,13 @@ def train_model(network, data, labels, batch_size, epochs,
         validation_data=validation_data,
         callbacks=callbacks
     )
+
+    if save_best and filepath is not None:
+        checkpoint = K.callbacks.ModelCheckpoint(
+            filepath=filepath,
+            save_best_only=True,
+            monitor='val_loss'
+        )
+        callbacks.append(checkpoint)
 
     return history
