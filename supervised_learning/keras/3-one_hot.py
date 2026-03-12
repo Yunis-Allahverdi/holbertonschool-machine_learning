@@ -4,7 +4,6 @@
 Documented
 '''
 import tensorflow.keras as K
-import numpy as np
 
 
 def one_hot(labels, classes=None):
