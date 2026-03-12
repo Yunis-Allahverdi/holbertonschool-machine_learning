@@ -8,6 +8,9 @@ import tensorflow.keras as K
 
 def train_model(network, data, labels, batch_size, epochs,
                 verbose=True, shuffle=False):
+    '''
+    Doc
+    '''
     history = network.fit(
         x=data,
         y=labels,
