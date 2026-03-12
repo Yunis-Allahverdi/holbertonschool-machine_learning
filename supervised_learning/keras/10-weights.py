@@ -10,7 +10,7 @@ def save_weights(network, filename, save_format='keras'):
     '''
     Doc
     '''
-    network.save_weights(network, filename, save_format=save_format)
+    network.save_weights(filename)
     return None
 
 
