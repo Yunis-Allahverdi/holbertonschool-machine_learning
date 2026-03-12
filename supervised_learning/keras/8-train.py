@@ -36,7 +36,6 @@ def train_model(network, data, labels, batch_size, epochs,
         callbacks.append(K.callbacks.ModelCheckpoint(
             filepath=filepath,
             save_best_only=True,
-            monitor='val_loss'
         ))
 
     history = network.fit(
@@ -49,3 +48,4 @@ def train_model(network, data, labels, batch_size, epochs,
         validation_data=validation_data,
         callbacks=callbacks
     )
+    return history
