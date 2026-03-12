@@ -22,14 +22,16 @@ def train_model(network, data, labels, batch_size, epochs,
             restore_best_weights=True
         )
         callbacks.append(early_stop)
-    
+
     if learning_rate_decay and validation_data is not None:
         def lr_scheduler(epoch, lr):
             new_lr = alpha / (1 + decay_rate * epoch)
             print(f"\nEpoch {epoch+1}: Learning rate is {new_lr:.6f}.")
             return new_lr
 
-        callbacks.append(K.callbacks.LearningRateScheduler(lr_scheduler, verbose=0))
+        callbacks.append(
+                K.callbacks.LearningRateScheduler(lr_scheduler, verbose=0)
+                )
 
     history = network.fit(
         x=data,
