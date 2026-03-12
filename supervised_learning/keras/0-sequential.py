@@ -12,12 +12,10 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
     '''
     Doc
     '''
-    model = Sequential()
-    model.add(Dense(units=layers[0], activation=activations[0], kernel_regularizer=K.regularizers.l2(lambtha), input_dim=nx))
-    model.add(Dropout(1-keep_prob))
-    for i in range(1, len(layers) - 1):
-        model.add(Dense(units=layers[i], activation=activations[i], kernel_regularizer=K.regularizers.l2(lambtha)))
-        model.add(Dropout(1-keep_prob))
+    model = [K.layers.Input(shape=(nx,))]
+    for n, act in zip(layers, activations):
+        model.append(K.layers.Dense(n, activation=act, kernel_regularizer=K.regularizers.l2(lambtha)))
+        model.append(K.layers.Dropout(rate=1-keep_prob))
 
-    model.add(Dense(units=layers[-1], activation=activations[-1], kernel_regularizer=K.regularizers.l2(lambtha)))
-    return model
+    model.pop()
+    return K.Sequential(model)
