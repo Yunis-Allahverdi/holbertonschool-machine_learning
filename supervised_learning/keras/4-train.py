@@ -6,7 +6,7 @@ Documented
 import tensorflow.keras as K
 
 
-def train_model(network, data, labels, batch_size, epochs, verbose=False, shuffle=False):
+def train_model(network, data, labels, batch_size, epochs, verbose=True, shuffle=False):
     history = network.fit(
         x=data,
         y=labels,
