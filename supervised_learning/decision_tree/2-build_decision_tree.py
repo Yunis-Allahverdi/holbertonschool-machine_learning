@@ -51,7 +51,7 @@ class Node:
         left_child_add_prefix function
         """
         lines = text.split("\n")
-        new_text = "    +--" + lines[0] + "\n"
+        new_text = "    +--->" + lines[0] + "\n"
 
         for x in lines[1:]:
             if x:
@@ -64,7 +64,7 @@ class Node:
         right_child_add_prefix function
         """
         lines = text.split("\n")
-        new_text = "    +--" + lines[0] + "\n"
+        new_text = "    +--->" + lines[0] + "\n"
 
         for x in lines[1:]:
             if x:
@@ -80,10 +80,10 @@ class Node:
         res = f"{label} [feature={self.feature}, threshold={self.threshold}]\n"
 
         if self.left_child:
-            res += self.left_child_add_prefix(self.left_child.__str__())
+            res += self.left_child_add_prefix(str(self.left_child))
 
         if self.right_child:
-            res += self.right_child_add_prefix(self.right_child.__str__())
+            res += self.right_child_add_prefix(str(self.right_child))
 
         return res.rstrip()
 
