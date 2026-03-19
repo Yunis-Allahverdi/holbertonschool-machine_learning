@@ -10,6 +10,6 @@ def normalization_constants(X):
     '''
     Doc
     '''
-    return tf.nn.moments(
-        X, axes=[0]
-    )
+    m = np.mean(X, axis=0)
+    s = np.std(X, axis=0)
+    return m, s
