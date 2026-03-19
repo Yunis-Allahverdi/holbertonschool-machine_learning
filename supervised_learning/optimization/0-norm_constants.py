@@ -3,7 +3,7 @@
 '''
 Documented
 '''
-import tensorflow as tf
+import numpy as np
 
 
 def normalization_constants(X):
