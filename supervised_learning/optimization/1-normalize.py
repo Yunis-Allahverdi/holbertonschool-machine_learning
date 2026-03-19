@@ -6,7 +6,7 @@ Documented
 import numpy as np
 
 
-def normalization_constants(X):
+def normalize(X, m, s):
     '''
     Doc
     '''
