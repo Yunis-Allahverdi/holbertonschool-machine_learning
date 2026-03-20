@@ -10,8 +10,13 @@ def l2_reg_cost(cost, model):
     '''
     Doc
     '''
-    l2_terms = []
+    l2_term = 0.0
+
+    # Loop through all layers
     for layer in model.layers:
-        if hasattr(layer, 'kernel_regularizer') and layer.kernel_regularizer:
-            l2_terms.append(layer.kernel_regularizer(layer.kernel))
-    return tf.stack(l2_terms)
+        # Check if the layer has a kernel regularizer
+        if hasattr(layer, 'kernel_regularizer') and layer.kernel_regularizer is not None:
+            l2_term += layer.kernel_regularizer(layer.kernel)
+
+    total_cost = cost + l2_term
+    return total_cost
