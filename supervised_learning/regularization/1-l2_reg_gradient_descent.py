@@ -11,7 +11,7 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
     Doc
     '''
     m = Y.shape[1]
-    dZ = cache['A' + str(l - 1)] if l > 1 else cache['A0']
+    dZ = cache['A' + str(L)] - Y
     
     for l in reversed(range(1, L + 1)):
         A_prev = cache['A' + str(l - 1)] if l > 1 else cache['A0']
