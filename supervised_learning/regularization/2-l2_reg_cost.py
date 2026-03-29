@@ -10,13 +10,7 @@ def l2_reg_cost(cost, model):
     '''
     Doc
     '''
-    l2_term = 0.0
+    l2_losses = tf.add_n(model.losses)
+    total_cost = cost + l2_losses
 
-    # Loop through all layers
-    for layer in model.layers:
-        # Check if the layer has a kernel regularizer
-        if hasattr(layer, 'kernel_regularizer') and layer.kernel_regularizer is not None:
-            l2_term += layer.kernel_regularizer(layer.kernel)
-
-    total_cost = cost + l2_term
     return total_cost
