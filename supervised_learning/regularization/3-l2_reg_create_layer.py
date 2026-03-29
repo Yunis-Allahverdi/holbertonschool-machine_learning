@@ -10,8 +10,10 @@ def l2_reg_create_layer(prev, n, activation, lambtha):
     '''
     Doc
     '''
-    return tf.keras.layers.Dense(
-        n,
+    layer = tf.keras.layers.Dense(
+        units=n,
         activation=activation,
-        kernel_regularizer=regularizers.L2(lambtha)
-    )(prev)
+        kernel_regularizer=tf.keras.regularizers.l2(lambtha)
+    )
+
+    return layer(prev)
