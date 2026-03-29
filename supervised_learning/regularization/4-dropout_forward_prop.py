@@ -3,7 +3,7 @@
 '''
 Doc
 '''
-import tensorflow as tf
+import numpy as np
 
 
 def dropout_forward_prop(X, weights, L, keep_prob):
