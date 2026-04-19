@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Script to create an inception block"""
 
-import tensorflow.keras as K
+from tensorflow import keras as K
 
 
 def identity_block(A_prev, filters):
