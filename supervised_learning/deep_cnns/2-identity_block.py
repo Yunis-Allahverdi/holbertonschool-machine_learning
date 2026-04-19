@@ -4,55 +4,47 @@
 import tensorflow.keras as K
 
 
-def inception_block(A_prev, filters):
+def identity_block(A_prev, filters):
     """
-    Function to create an inception block
+
     Args:
-        A_prev: The output from the previous layer
-        filters: Tuple or list containing the following filters
-                 F1: is the number of filters in the 1x1 convolution
-                 F3R: is the number of filters in the 1x1 convolution
-                      before the 3x3 convolution
-                 F3: is the number of filters in the 3x3 convolution
-                 F5R: is the number of filters in the 1x1 convolution
-                      before the 5x5 convolution
-                 F5: is the number of filters in the 5x5 convolution
-                 FPP: is the number of filters in the 1x1 convolution
-                      after the max pooling
-    Returns: the concatenated output of the inception block
+        A_prev: the output from the previous layer
+        filters: tuple or list containing the following filters
+                 F11: the number of filters in the 1st 1x1 convolution
+                 F3: the number of filters in the 3x3 convolution
+                 F12: the number of filters in the 2nd 1x1 convolution
+
+    Returns: the activated output of the identity block
     """
+    init = K.initializers.he_normal()
     activation = 'relu'
-    init = K.initializers.he_normal(seed=None)
-    F1, F3R, F3, F5R, F5, FPP = filters
+    F11, F3, F12 = filters
 
-    convly_1 = K.layers.Conv2D(filters=F1, kernel_size=1, padding='same',
-                               activation=activation,
-                               kernel_initializer=init)(A_prev)
+    # First component of the main path
+    conv1 = K.layers.Conv2D(filters=F11, kernel_size=1, padding='same',
+                            kernel_initializer=init)(A_prev)
 
-    convly_2P = K.layers.Conv2D(filters=F3R, kernel_size=1, padding='same',
-                                activation=activation,
-                                kernel_initializer=init)(A_prev)
+    batchc1 = K.layers.BatchNormalization(axis=3)(conv1)
 
-    convly_2 = K.layers.Conv2D(filters=F3, kernel_size=3, padding='same',
-                               activation=activation,
-                               kernel_initializer=init)(convly_2P)
+    relu1 = K.layers.Activation('relu')(batchc1)
 
-    convly_3P = K.layers.Conv2D(filters=F5R, kernel_size=1, padding='same',
-                                activation=activation,
-                                kernel_initializer=init)(A_prev)
+    # Second component of the main path
+    conv2 = K.layers.Conv2D(filters=F3, kernel_size=3, padding='same',
+                            kernel_initializer=init)(relu1)
 
-    convly_3 = K.layers.Conv2D(filters=F5, kernel_size=5, padding='same',
-                               activation=activation,
-                               kernel_initializer=init)(convly_3P)
+    batchc2 = K.layers.BatchNormalization(axis=3)(conv2)
 
-    layer_pool = K.layers.MaxPooling2D(pool_size=[3, 3], strides=(1, 1),
-                                       padding='same')(A_prev)
+    relu2 = K.layers.Activation('relu')(batchc2)
 
-    layer_poolP = K.layers.Conv2D(filters=FPP, kernel_size=1, padding='same',
-                                  activation=activation,
-                                  kernel_initializer=init)(layer_pool)
+    # Third component of the main path
+    conv3 = K.layers.Conv2D(filters=F12, kernel_size=1, padding='same',
+                            kernel_initializer=init)(relu2)
 
-    mid_layer = K.layers.concatenate([convly_1, convly_2,
-                                      convly_3, layer_poolP])
+    batch3 = K.layers.BatchNormalization(axis=3)(conv3)
 
-    return mid_layer
+    # Add shortcut to main path, pass through a relu activation
+    add = K.layers.Add()([batch3, A_prev])
+
+    final_relu = K.layers.Activation('relu')(add)
+
+    return final_relu
