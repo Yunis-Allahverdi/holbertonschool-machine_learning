@@ -21,8 +21,7 @@ def expectation_maximization(X,
         iterations: positive integer containing the maximum number of
                     iterations for the algorithm
         tol: non-negative float containing tolerance of the log likelihood,
-             used to determine early stopping i.e. if the difference is
-             less than or equal to tol you should stop the algorithm
+             used to determine early stopping
         verbose: boolean that determines if you should print information
                  about the algorithm
     Returns: pi, m, S, g, log_l, or None x5 on failure
