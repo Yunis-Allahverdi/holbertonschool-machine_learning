@@ -22,14 +22,13 @@ def maximization(X, g):
     if g.shape[1] != n:
         return None, None, None
 
-    # posterior probabilities should sum to 1 across clusters for each point
     probs = np.sum(g, axis=0)
     if not np.isclose(np.sum(probs), n):
         return None, None, None
 
-    Nk = np.sum(g, axis=1)              # (k,)
-    pi = Nk / n                          # (k,) priors
-    m = np.matmul(g, X) / Nk[:, np.newaxis]  # (k, d) means, fully vectorized
+    Nk = np.sum(g, axis=1)
+    pi = Nk / n
+    m = np.matmul(g, X) / Nk[:, np.newaxis]
 
     S = np.zeros((k, d, d))
     for i in range(k):
