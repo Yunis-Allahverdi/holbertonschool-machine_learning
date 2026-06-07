@@ -52,7 +52,7 @@ def autoencoder(input_dims, hidden_layers, latent_dims):
     output = last_ly(Y_prev)
     decoder = keras.Model(X_decode, output)
 
-    e_output = encoder(X_input)[-1]
+    e_output = encoder(X_input)[0]
     d_output = decoder(e_output)
     auto = keras.Model(X_input, d_output)
 
