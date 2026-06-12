@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+i"""
 My module document
 """
 
@@ -17,9 +17,13 @@ class Node:
         self.sub_population = None
         self.depth = depth
 
-    def max_depth_below(self) :
-
-            ####### FILL IN THIS METHOD
+    def max_depth_below(self):
+        max_d = self.depth
+        if self.left_child:
+            max_d = max(max_d, self.left_child.max_depth_below())
+        if self.right_child:
+            max_d = max(max_d, self.right_child.max_depth_below())
+        return max_d
 
     def __str__(self):
         if self.is_root:
@@ -39,11 +43,11 @@ class Leaf(Node):
         self.is_leaf = True
         self.depth = depth
 
-    def max_depth_below(self) :
+    def max_depth_bielow(self) :
         return self.depth
 
     def __str__(self):
-        return (f"-> leaf [value={self.value}]")
+        return f"leaf [value={self.value}]"
 
 class Decision_Tree():
     def __init__(self, max_depth=10, min_pop=1, seed=0, split_criterion="random", root=None):
@@ -68,15 +72,15 @@ class Decision_Tree():
 
  def left_child_add_prefix(text):
     lines = text.split("\n")
-    new_text = "    +---> " + lines[0] + "\n"
+    new_text = "+---> " + lines[0] + "\n"
     for x in lines[1:]:
-        new_text += "    |      " + x + "\n"
+        new_text += "|     " + line + "\n"
     return new_text
 
 
  def right_child_add_prefix(text):
     lines = text.split("\n")
-    new_text = "    +---> " + lines[0] + "\n"
-    for x in lines[1:]:
-        new_text += "           " + x + "\n"
+    new_text = "+---> " + lines[0] + "\n"
+    for line in lines[1:]:
+        new_text += "      " + line + "\n"
     return new_text
