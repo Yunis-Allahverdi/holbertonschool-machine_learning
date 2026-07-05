@@ -1,24 +1,12 @@
 #!/usr/bin/env python3
-"""Bag of words"""
-
+"""A module that does the trick"""
 from sklearn.feature_extraction.text import CountVectorizer
 
 
 def bag_of_words(sentences, vocab=None):
-    """
-    bag of words function
-    Args:
-        sentences: list of sentences to analize
-        vocab: list of the vocabulary words to use for the analysis
-    Returns: embeddings, features
-    """
-    if vocab is None:
-        vectorizer = CountVectorizer()
-        X = vectorizer.fit_transform(sentences)
-        vocab = vectorizer.get_feature_names()
-    else:
-        vectorizer = CountVectorizer(vocabulary=vocab)
-        X = vectorizer.fit_transform(sentences)
-    embedding = X.toarray()
-
-    return embedding, vocab
+    """A function that does the trick"""
+    vectorizer = CountVectorizer(vocabulary=vocab)
+    X = vectorizer.fit_transform(sentences)
+    embeddings = X.toarray()
+    features = vectorizer.get_feature_names_out()
+    return embeddings, features
