@@ -4,7 +4,7 @@ import gensim
 
 
 def word2vec_model(sentences, vector_size=100, min_count=5, window=5,
-                   negative=5, cbow=True, epochs=5, seed=0, workers=1):
+                   negative=5, cbow=True, epochs=5, seed=1, workers=1):
     """Create and train a Word2Vec model."""
 
     model = gensim.models.Word2Vec(
