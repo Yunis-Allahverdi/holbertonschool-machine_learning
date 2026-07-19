@@ -11,13 +11,19 @@ class Dataset:
         """Initializes the dataset and creates the tokenizers"""
         self.data_train = load_pt2en('train')
         self.data_valid = load_pt2en('validation')
-
-        tokenizers = self.tokenize_dataset(self.data_train)
-        self.tokenizer_pt = tokenizers[0]
-        self.tokenizer_en = tokenizers[1]
+        self.tokenizer_pt, self.tokenizer_en = self.tokenize_dataset(
+            self.data_train
+        )
 
     def tokenize_dataset(self, data):
-        """Creates sub-word tokenizers for the dataset"""
+        """Creates sub-word tokenizers for the dataset
+
+        Args:
+            data: tf.data.Dataset whose examples are tuples (pt, en)
+
+        Returns:
+            tokenizer_pt, tokenizer_en: the trained tokenizers
+        """
         pt_sentences = []
         en_sentences = []
 
